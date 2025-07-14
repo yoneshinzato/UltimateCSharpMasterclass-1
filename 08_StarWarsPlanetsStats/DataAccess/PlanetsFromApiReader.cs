@@ -28,7 +28,7 @@ public class PlanetsFromApiReader : IPlanetsReader
         try
         {
             json = await _apiDataReader.Read(
-                "https://swapi.dev/", "api/planets");
+                "https://swapi.info/", "api/planets");
         }
         catch (HttpRequestException ex)
         {
@@ -38,21 +38,21 @@ public class PlanetsFromApiReader : IPlanetsReader
                 "Exception message: " + ex.Message);
         }
         json ??= await _secondaryApiDataReader.Read(
-                "https://swapi.dev/", "api/planets");
+                "https://swapi.info/", "api/planets");
 
-        var root = JsonSerializer.Deserialize<Root>(json);
+        var results = JsonSerializer.Deserialize<List<Result>>(json);
 
-        return ToPlanets(root);
+        return ToPlanets(results);
     }
 
-    private static IEnumerable<Planet> ToPlanets(Root? root)
+    private static IEnumerable<Planet> ToPlanets(List<Result>? results)
     {
-        if (root is null)
+        if (results is null)
         {
-            throw new ArgumentNullException(nameof(root));
+            throw new ArgumentNullException(nameof(results));
         }
 
-        return root.results.Select(
+        return results.Select(
             planetDto => (Planet)planetDto);
     }
 }
