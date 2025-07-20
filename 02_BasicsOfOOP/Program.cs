@@ -160,12 +160,12 @@
 //    }
 //}
 
-var rectangle1 = new Rectangle(5, 10);
-var calculator = new ShapesMesurementsCalculator();
-Console.WriteLine("Width is " + rectangle1.Width);
-Console.WriteLine("Height is " + rectangle1.Height);
-Console.WriteLine("Area is " + calculator.CalculateArea(rectangle1));
-Console.WriteLine("Circumference is " + calculator.CalculateRectangleCircumference(rectangle1));
+// var rectangle1 = new Rectangle(5, 10);
+// var calculator = new ShapesMesurementsCalculator();
+// Console.WriteLine("Width is " + rectangle1.Width);
+// Console.WriteLine("Height is " + rectangle1.Height);
+// Console.WriteLine("Area is " + calculator.CalculateArea(rectangle1));
+// Console.WriteLine("Circumference is " + calculator.CalculateRectangleCircumference(rectangle1));
 
 
 // class Rectangle
@@ -193,3 +193,130 @@ Console.WriteLine("Circumference is " + calculator.CalculateRectangleCircumferen
 //         return rectangle.Width * rectangle.Height;  
 //     }
 // }
+
+Console.ReadKey();
+
+// var medicalAppointment = new MedicalAppointment("John Doe", new DateTime(2023, 10, 1));
+
+// overwrite month and day
+// medicalAppointment.Reschedule(11, 15);
+
+
+// add given number of months and days
+// medicalAppointment.Reschedule(2, 10);
+
+// class MedicalAppointment
+// {
+//     private string _patientName;
+//     private DateTime _date;
+
+//     public MedicalAppointment(string patientName, DateTime date)
+//     {
+//         _patientName = patientName;
+//         _date = date;
+//     }
+
+//     public void Reschedule(DateTime date)
+//     {
+//         _date = date;
+//     }
+
+//     public MedicalAppointment(string patientName): this(patientName, 7)
+//     {
+//         _patientName = patientName;
+//         _date = DateTime.Now.AddDays(7);
+//     }
+//     public MedicalAppointment(string patientName, int daysFromNow)
+//     {
+//         _patientName = patientName;
+//         _date = DateTime.Now.AddDays(daysFromNow);
+//     }
+
+//     public void Reschedule(int month, int day)
+//     {
+//         _date = new DateTime(_date.Year, month, day);
+//     }
+
+//     public void Reschedule(int monthsToAdd, int daysToAdd)
+//     {
+//         _date = new DateTime(_date.Year, _date.Month + monthsToAdd, _date.Day + daysToAdd);
+//     }
+
+// }
+
+
+// class Rectangle
+// {
+//     public int Width;
+//     public int Height;
+
+//     public Rectangle(int width, int height)
+//     {
+//         Width = width;
+//         Height = height;
+//     }
+
+//     public int CalculateCircumference() => 2 * Width + 2 * Height;
+
+//     public int CalculateArea() => Width * Height;
+
+// }
+
+class MedicalAppointmentPrinter
+{
+    public void Print(MedicalAppointment medicalAppointment)
+    {
+        Console.WriteLine(
+        "Appointment will take place on " + medicalAppointment.GetDate()
+        );
+    }
+}
+
+class MedicalAppointment
+{
+    private string _patientName;
+    private DateTime _date;
+
+    public MedicalAppointment(string patientName, DateTime date)
+    {
+        _patientName = patientName;
+        _date = date;
+    }
+
+
+    public DateTime GetDate() => _date;
+
+    public void Reschedule(DateTime date)
+    {
+        _date = date;
+        var printer = new MedicalAppointmentPrinter();
+        printer.Print(this);
+    }
+
+    // public MedicalAppointment(string patientName) : this(patientName, 7)
+    // {
+    //     patientName = patientName;
+    //     _date = DateTime.Now.AddDays(7);
+    // }
+
+
+    public MedicalAppointment(string patientName = "Unknown", int daysFromNow = 7)
+    {
+        _patientName = patientName;
+        _date = DateTime.Now.AddDays(daysFromNow);
+    }
+
+    public void Reschedule(int month, int day)
+    {
+        _date = new DateTime(_date.Year, month, day);
+    }
+
+    // public void Reschedule(int monthsToAdd, int daysToAdd)
+    // {
+    //     _date = new DateTime(_date.Year, _date.Month + monthsToAdd, _date.Day + daysToAdd);
+    // }
+
+}
+
+Console.ReadKey();
+
