@@ -264,3 +264,87 @@
 
 
 
+var rectangle1 = new Rectangle(8, 9);
+
+Console.WriteLine("width is " + rectangle1.Width);
+Console.WriteLine("Height is " + rectangle1.Height);
+Console.WriteLine("Circumference is " + rectangle1.CalculateCircumference());
+Console.WriteLine("Area is " + rectangle1.CalculateArea());
+
+var rectangle2 = new Rectangle(2, 3);
+
+Console.WriteLine("width is " + rectangle2.Width);
+Console.WriteLine("Height is " + rectangle2.Height);
+Console.WriteLine("Circumference is " + rectangle2.CalculateCircumference());
+Console.WriteLine("Area is " + rectangle2.CalculateArea());
+
+//var medicalAppointment = new MedicalAppointment(
+//    "John Doe", new DateTime(2023, 4, 3));
+
+//medicalAppointment.OverWriteMonthAndDay(5, 1);
+
+//medicalAppointment.MoveByMonthsAndDays(1, 2);
+
+Console.ReadKey();
+
+class Rectangle
+{
+    public int Width;
+    public int Height;
+
+    public Rectangle(int width, int height)
+    {
+        Width = width;
+        Height = height;
+    }
+
+    public int CalculateCircumference() =>  2 * Width + 2 * Height;
+    public int CalculateArea() => Width * Height;
+    
+
+}
+
+//class MedicalAppointment
+//{
+//    private string _patientName;
+//    private DateTime _date;
+
+//    public MedicalAppointment(string patientName, DateTime date): this(patientName, 7)
+//    {
+//        _patientName = patientName;
+//        _date = date;
+//    }
+//    public MedicalAppointment(string patientName)
+//    {
+//        _patientName = patientName;     
+//        _date = DateTime.Now.AddDays(7);
+//    } 
+
+//    public MedicalAppointment(string patientName, int daysFromNow)
+//    {
+//        _patientName = patientName;     
+//        _date = DateTime.Now.AddDays(daysFromNow);
+//    }
+
+
+//    public void Reschedule(DateTime: date)
+//    {
+//        _date = date;
+//    }
+
+//    public void OverWriteMonthAndDay(int month, int day)
+//    {
+//        _date = new DateTime(_date.Year, month, day);
+//    }
+
+//    public void MoveByMonthsAndDays(int monthsToAdd, int daysToAdd)
+//    {
+//        _date = new DateTime(
+//            _date.Year,
+//            _date.Month + monthsToAdd
+//            _date.Day + daysToAdd
+//            )
+//    }
+
+
+//}
