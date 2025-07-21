@@ -194,7 +194,7 @@
 //     }
 // }
 
-Console.ReadKey();
+// Console.ReadKey();
 
 // var medicalAppointment = new MedicalAppointment("John Doe", new DateTime(2023, 10, 1));
 
