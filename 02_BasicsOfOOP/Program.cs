@@ -292,7 +292,7 @@ class Rectangle
 
     public Rectangle(int width, int height)
     {
-        Width = GetLengthOfDefault(width, "Width");
+        Width = GetLengthOrDefault(width, "Width");
 
         Height = GetLengthOrDefault(height, "Height");
     }
