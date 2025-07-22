@@ -287,23 +287,26 @@ Console.ReadKey();
 
 class Rectangle
 {
-    public int Width;
-    public int Height;
+    const int NumberOfSides = 4;
+    readonly int NumbersOfSidesReadonly;
+    public readonly int Width;
+    public readonly int Height;
 
     public Rectangle(int width, int height)
     {
-        Width = GetLengthOrDefault(width, "Width");
+        NumbersOfSidesReadonly = 4;
+        Width = GetLengthOrDefault(width, nameof(Width));
 
-        Height = GetLengthOrDefault(height, "Height");
+        Height = GetLengthOrDefault(height, nameof(Height));
     }
 
     private int GetLengthOrDefault(int length, string name)
     {
-        const int defaultValueIfNonPositive = 1;
+        const int DefaultValueIfNonPositive = 1;
         if (length <= 0)
         {
             Console.WriteLine($"{name} must be a positive number.");
-            return defaultValueIfNonPositive;
+            return DefaultValueIfNonPositive;
         }
         return length;
     }
