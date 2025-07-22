@@ -267,14 +267,14 @@
 var rectangle1 = new Rectangle(8, 9);
 
 Console.WriteLine("width is " + rectangle1.Width);
-Console.WriteLine("Height is " + rectangle1.Height);
+Console.WriteLine("Height is " + rectangle1.GetHeight());
 Console.WriteLine("Circumference is " + rectangle1.CalculateCircumference());
 Console.WriteLine("Area is " + rectangle1.CalculateArea());
 
 var rectangle2 = new Rectangle(2, 3);
 
 Console.WriteLine("width is " + rectangle2.Width);
-Console.WriteLine("Height is " + rectangle2.Height);
+Console.WriteLine("Height is " + rectangle2.GetHeight());
 Console.WriteLine("Circumference is " + rectangle2.CalculateCircumference());
 Console.WriteLine("Area is " + rectangle2.CalculateArea());
 
@@ -287,17 +287,24 @@ Console.ReadKey();
 
 class Rectangle
 {
-    const int NumberOfSides = 4;
-    readonly int NumbersOfSidesReadonly;
+
     public readonly int Width;
-    public readonly int Height;
+    private readonly int _height;
 
     public Rectangle(int width, int height)
     {
-        NumbersOfSidesReadonly = 4;
         Width = GetLengthOrDefault(width, nameof(Width));
-
         Height = GetLengthOrDefault(height, nameof(Height));
+    }
+
+    public int GetHeight() => _height;
+
+    public void SetHeight(int value)
+    {
+        if (value > 0)
+        {
+            _height = value;
+        }
     }
 
     private int GetLengthOrDefault(int length, string name)
