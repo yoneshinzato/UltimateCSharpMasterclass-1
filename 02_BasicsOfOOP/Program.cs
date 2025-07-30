@@ -264,120 +264,72 @@
 
 
 
-var rectangle1 = new Rectangle(8, 9);
+// var rectangle1 = new Rectangle(5, 10);
 
-Console.WriteLine("width is " + rectangle1.Width);
-Console.WriteLine("Height is " + rectangle1.GetHeight());
-Console.WriteLine("Circumference is " + rectangle1.CalculateCircumference());
-Console.WriteLine("Area is " + rectangle1.CalculateArea());
+// Console.WriteLine("width is " + rectangle1.Width);
+// Console.WriteLine("Height is " + rectangle1.GetHeight());
+// Console.WriteLine("Area is " + rectangle1.CalculateArea());
+// Console.WriteLine("Circumference is " + rectangle1.CalculateCircumference());
 
-var rectangle2 = new Rectangle(2, 3);
+// Console.ReadKey();
 
-Console.WriteLine("width is " + rectangle2.Width);
-Console.WriteLine("Height is " + rectangle2.GetHeight());
-Console.WriteLine("Circumference is " + rectangle2.CalculateCircumference());
-Console.WriteLine("Area is " + rectangle2.CalculateArea());
+// class Rectangle
+// {
+//     public Rectangle(int width, int height)
+//     {
+//         Width = GetLengthOrDefault(width, nameof(Width));
+//         _height = GetLengthOrDefault(height, nameof(_height));
+//     }
 
-//var medicalAppointment = new MedicalAppointment(
-//   "John Doe", new DateTime(2023, 4, 3));
-//medicalAppointment.OverWriteMonthAndDay(5, 1);
-//medicalAppointment.MoveByMonthsAndDays(1, 2);
+//     public int Width { get; private set; }
+//     private int _height;
+
+//     public int GetHeight() => _height;
+
+//     public void SetHeight(int value)
+//     {
+//            _height = value;
+//     }
+
+//     private int GetLengthOrDefault(int length, string name)
+//     {
+//         const int DefaultValueIfNonPositive = 1;
+//         if (length <= 0)
+//         {
+//             Console.WriteLine($"{name} must be a positive number.");
+//             return DefaultValueIfNonPositive;
+//         }
+//         return length;
+//     }
+
+//     public int CalculateCircumference() => 2 * Width + 2 * GetHeight();
+//     public int CalculateArea() => Width * GetHeight();
+
+// }
+
+var rect = new Rectangle(5, 6);
+var rect2 = new Rectangle(10, 20);
+
+Console.WriteLine("Width is " + rect.Width);
+Console.WriteLine("Height is " + rect.Height);
+
+Console.WriteLine("Width is " + rect2.Width);
+Console.WriteLine("Height is " + rect2.Height);
+
+
 
 Console.ReadKey();
 
 class Rectangle
 {
-
-    public readonly int Width;
-    private readonly int _height;
+    public int Width;
+    public int Height;
 
     public Rectangle(int width, int height)
     {
-        Width = GetLengthOrDefault(width, nameof(Width));
-        Height = GetLengthOrDefault(height, nameof(Height));
+        Width = width;
+        Height = height;
     }
 
-    public int GetHeight() => _height;
-
-    public void SetHeight(int value)
-    {
-        if (value > 0)
-        {
-            _height = value;
-        }
-    }
-
-    private int GetLengthOrDefault(int length, string name)
-    {
-        const int DefaultValueIfNonPositive = 1;
-        if (length <= 0)
-        {
-            Console.WriteLine($"{name} must be a positive number.");
-            return DefaultValueIfNonPositive;
-        }
-        return length;
-    }
-
-    public int CalculateCircumference() => 2 * Width + 2 * Height;
-    public int CalculateArea() => Width * Height;
 
 }
-
-//class MedicalAppointmentPrinter
-//{
-//    public void Print(MedicalAppointment medicalAppointment)
-//    {
-//        Console.WriteLine("appointment will take place on " + medicalAppointment.GetDate());
-//    }
-//}
-
-//class MedicalAppointment
-//{
-//    private string _patientName;
-//    private DateTime _date;
-
-//    public MedicalAppointment(string patientName, DateTime date) : this(patientName, 7)
-//    {
-//        _patientName = patientName;
-//        _date = date;
-//    }
-//    public MedicalAppointment(string patientName)
-//    {
-//        _patientName = patientName;
-//        _date = DateTime.Now.AddDays(7);
-//    }
-
-//    public DateTime GetDate() => _date;
-
-//    public MedicalAppointment(string patientName, int daysFromNow)
-//    {
-//        _patientName = patientName;
-//        _date = DateTime.Now.AddDays(daysFromNow);
-//    }
-
-
-//    public void Reschedule(DateTime date)
-//    {
-//        _date = date;
-//        var printer = new MedicalAppointmentPrinter();
-//        printer.Print(this);
-//    }
-
-
-
-//    public void OverWriteMonthAndDay(int month, int day)
-//    {
-//        _date = new DateTime(_date.Year, month, day);
-//    }
-
-//    public void MoveByMonthsAndDays(int monthsToAdd, int daysToAdd)
-//    {
-//        _date = new DateTime(
-//            _date.Year,
-//            _date.Month + monthsToAdd,
-//            _date.Day + daysToAdd
-//            );
-//    }
-
-
-//}
