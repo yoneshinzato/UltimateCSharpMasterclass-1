@@ -312,11 +312,13 @@ var rect2 = new Rectangle(10, 20);
 
 Console.WriteLine("Width is " + rect.Width);
 Console.WriteLine("Height is " + rect.Height);
+Console.WriteLine("Circumference is " + rect.CalculateCircumference());
+Console.WriteLine("Area is " + rect.CalculateArea());
 
 Console.WriteLine("Width is " + rect2.Width);
 Console.WriteLine("Height is " + rect2.Height);
-
-
+Console.WriteLine("Circumference is " + rect2.CalculateCircumference());
+Console.WriteLine("Area is " + rect2.CalculateArea());
 
 Console.ReadKey();
 
@@ -331,5 +333,13 @@ class Rectangle
         Height = height;
     }
 
+    public int CalculateCircumference ()
+    {
+        return 2 * Width + 2 * Height;
+    }
 
+    public int CalculateArea()
+    {
+        return Width * Height;
+    }
 }
