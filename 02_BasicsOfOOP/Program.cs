@@ -415,8 +415,7 @@ class Rectangle
 {
 
     const int NumberOfSides = 4;
-    public readonly int Width;
-    private int _height;
+
 
 
     public Rectangle(int width, int height)
@@ -424,6 +423,9 @@ class Rectangle
         Width = getLenghtOrDefault(width, nameof(Width));
         _height = getLenghtOrDefault(height, nameof(_height));
     }
+
+    public int Width { get; private set;  }
+    private int _height;
 
     public int getHeight() => _height;
 
