@@ -307,39 +307,139 @@
 
 // }
 
+// var rect = new Rectangle(5, 6);
+// var rect2 = new Rectangle(10, 20);
+// var calculator = new ShapesMesurementsCalculator();
+
+// Console.WriteLine("Width is " + rect.Width);
+// Console.WriteLine("Height is " + rect.Height);
+// Console.WriteLine("Circumference is " + calculator.CalculateCircumference(rect));
+// Console.WriteLine("Area is " + calculator.CalculateArea(rect));
+
+// Console.WriteLine("Width is " + rect2.Width);
+// Console.WriteLine("Height is " + rect2.Height);
+// Console.WriteLine("Circumference is " + calculator.CalculateCircumference(rect2));
+// Console.WriteLine("Area is " + calculator.CalculateArea(rect2));
+
+// Console.ReadKey();
+
+// class Rectangle
+// {
+//     public int Width;
+//     public int Height;
+
+//     public Rectangle(int width, int height)
+//     {
+//         Width = width;
+//         Height = height;
+//     }
+// }
+
+// class ShapesMesurementsCalculator
+// {
+//         public int CalculateCircumference(Rectangle rectangle) => 2 * rectangle.Width + 2 * rectangle.Height;
+    
+
+//     public int CalculateArea(Rectangle rectangle) => rectangle.Width * rectangle.Height;
+    
+// }
+
+// var medicalAppointment = new MedicalAppointment("John Doe", new DateTime(2023, 10, 1));
+// medicalAppointment.OverwriteMonthAndDay(11, 15);
+// medicalAppointment.MoveByMonthsAndDays(2, 10);
+
+// class MedicalAppointmentPrinter
+// {
+//     public void Print(MedicalAppointment appointment)
+//     {
+//         Console.WriteLine(
+//             "Appoint will take place on" +
+//             appointment.getDate());
+//     }
+// }
+
+// class MedicalAppointment
+// {
+//     private string _patientName;
+//     private DateTime _date;
+//     public MedicalAppointment(string patientName, DateTime date)
+//     {
+//         _patientName = patientName;
+//         _date = date;
+//     }
+//     public DateTime getDate() => _date;
+//     // public MedicalAppointment(string patientName) : this(patientName, 7)
+//     // {
+//     // }
+//     public MedicalAppointment(string patientName, int daysFromNow = 7)
+//     {
+//         _patientName = patientName;
+//         _date = DateTime.Now.AddDays(daysFromNow);
+//     }
+
+//     public void Reschedule(DateTime date)
+//     {
+//         _date = date;
+//         var printer = new MedicalAppointmentPrinter();
+//         printer.Print(this);
+//     }
+
+//     public void OverwriteMonthAndDay(int month, int day)
+//     {
+//         _date = new DateTime(_date.Year, month, day);
+//     }
+
+//     public void MoveByMonthsAndDays(int monthsToAdd, int daysToAdd)
+//     {
+//         _date = new DateTime(_date.Year, _date.Month + monthsToAdd, _date.Day + daysToAdd);
+//     }
+// }
+
 var rect = new Rectangle(5, 6);
 var rect2 = new Rectangle(10, 20);
+var calculator = new ShapesMesurementsCalculator();
 
 Console.WriteLine("Width is " + rect.Width);
 Console.WriteLine("Height is " + rect.Height);
-Console.WriteLine("Circumference is " + rect.CalculateCircumference());
-Console.WriteLine("Area is " + rect.CalculateArea());
+Console.WriteLine("Circumference is " + calculator.CalculateCircumference(rect));
+Console.WriteLine("Area is " + calculator.CalculateArea(rect));
 
 Console.WriteLine("Width is " + rect2.Width);
 Console.WriteLine("Height is " + rect2.Height);
-Console.WriteLine("Circumference is " + rect2.CalculateCircumference());
-Console.WriteLine("Area is " + rect2.CalculateArea());
+Console.WriteLine("Circumference is " + calculator.CalculateCircumference(rect2));
+Console.WriteLine("Area is " + calculator.CalculateArea(rect2));
 
 Console.ReadKey();
 
 class Rectangle
 {
+
     public int Width;
     public int Height;
 
     public Rectangle(int width, int height)
     {
-        Width = width;
-        Height = height;
+        Width = getLenghtOrDefault(width, nameof(Width));
+        Height = getLenghtOrDefault(height, nameof(Height));
     }
-
-    public int CalculateCircumference ()
+    
+    private int getLenghtOrDefault(int length, string name)
     {
-        return 2 * Width + 2 * Height;
+        const int DefaultValueIfNonPositive = 1;
+        if (length <= 0)
+        {
+            Console.WriteLine($"{name} must be a positive number.");
+            return DefaultValueIfNonPositive;
+        }
+        return length;
     }
+}
 
-    public int CalculateArea()
-    {
-        return Width * Height;
-    }
+class ShapesMesurementsCalculator
+{
+        public int CalculateCircumference(Rectangle rectangle) => 2 * rectangle.Width + 2 * rectangle.Height;
+    
+
+    public int CalculateArea(Rectangle rectangle) => rectangle.Width * rectangle.Height;
+    
 }
