@@ -338,10 +338,10 @@
 // class ShapesMesurementsCalculator
 // {
 //         public int CalculateCircumference(Rectangle rectangle) => 2 * rectangle.Width + 2 * rectangle.Height;
-    
+
 
 //     public int CalculateArea(Rectangle rectangle) => rectangle.Width * rectangle.Height;
-    
+
 // }
 
 // var medicalAppointment = new MedicalAppointment("John Doe", new DateTime(2023, 10, 1));
@@ -395,65 +395,90 @@
 //     }
 // }
 
-var rect = new Rectangle(5, 6);
-var rect2 = new Rectangle(10, 20);
-var calculator = new ShapesMesurementsCalculator();
+// var rect = new Rectangle(5, 6);
+// var rect2 = new Rectangle(10, 20);
+// var calculator = new ShapesMesurementsCalculator();
 
-Console.WriteLine("Width is " + rect.Width);
-Console.WriteLine("Height is " + rect.getHeight());
-Console.WriteLine("Circumference is " + calculator.CalculateCircumference(rect));
-Console.WriteLine("Area is " + calculator.CalculateArea(rect));
+// Console.WriteLine("Width is " + rect.Width);
+// Console.WriteLine("Height is " + rect.getHeight());
+// Console.WriteLine("Circumference is " + calculator.CalculateCircumference(rect));
+// Console.WriteLine("Area is " + calculator.CalculateArea(rect));
 
-Console.WriteLine("Width is " + rect2.Width);
-Console.WriteLine("Height is " + rect2.getHeight());
-Console.WriteLine("Circumference is " + calculator.CalculateCircumference(rect2));
-Console.WriteLine("Area is " + calculator.CalculateArea(rect2));
+// Console.WriteLine("Width is " + rect2.Width);
+// Console.WriteLine("Height is " + rect2.getHeight());
+// Console.WriteLine("Circumference is " + calculator.CalculateCircumference(rect2));
+// Console.WriteLine("Area is " + calculator.CalculateArea(rect2));
 
-Console.ReadKey();
+// Console.ReadKey();
 
-class Rectangle
-{
+// class Rectangle
+// {
 
-    const int NumberOfSides = 4;
+//     const int NumberOfSides = 4;
 
 
 
-    public Rectangle(int width, int height)
-    {
-        Width = getLenghtOrDefault(width, nameof(Width));
-        _height = getLenghtOrDefault(height, nameof(_height));
-    }
+//     public Rectangle(int width, int height)
+//     {
+//         Width = getLenghtOrDefault(width, nameof(Width));
+//         _height = getLenghtOrDefault(height, nameof(_height));
+//     }
 
-    public int Width { get; private set;  }
-    private int _height;
+//     public int Width { get; private set;  }
+//     private int _height;
 
-    public int getHeight() => _height;
+//     public int getHeight() => _height;
 
-    public void SetHeight(int value)
-    {
-        if (value > 0)
-        {
-            _height = value;
-        }
-   }
-    
-    private int getLenghtOrDefault(int length, string name)
-    {
-        const int DefaultValueIfNonPositive = 1;
-        if (length <= 0)
-        {
-            Console.WriteLine($"{name} must be a positive number.");
-            return DefaultValueIfNonPositive;
-        }
-        return length;
-    }
-}
+//     public void SetHeight(int value)
+//     {
+//         if (value > 0)
+//         {
+//             _height = value;
+//         }
+//    }
 
-class ShapesMesurementsCalculator
-{
-        public int CalculateCircumference(Rectangle rectangle) => 2 * rectangle.Width + 2 * rectangle.getHeight();
-    
+//     private int getLenghtOrDefault(int length, string name)
+//     {
+//         const int DefaultValueIfNonPositive = 1;
+//         if (length <= 0)
+//         {
+//             Console.WriteLine($"{name} must be a positive number.");
+//             return DefaultValueIfNonPositive;
+//         }
+//         return length;
+//     }
+// }
 
-    public int CalculateArea(Rectangle rectangle) => rectangle.Width * rectangle.getHeight();
-    
-}
+// class ShapesMesurementsCalculator
+// {
+//         public int CalculateCircumference(Rectangle rectangle) => 2 * rectangle.Width + 2 * rectangle.getHeight();
+
+
+//     public int CalculateArea(Rectangle rectangle) => rectangle.Width * rectangle.getHeight();
+
+// }
+
+// object initializers
+
+// var person = new Person
+// {
+//     Name = "Yone",
+//     YearOfBirth = 1990
+// };
+// person.Name = "Pedro";
+
+// Console.ReadKey();
+
+// class Person
+// {
+//     public string Name { get; set; }
+//     public int YearOfBirth { get; init; }
+
+
+    // public Person(string name, int yearOfBirth)
+    // {
+    //     Name = name;
+    //     YearOfBirth = yearOfBirth;
+    // }
+// }
+
