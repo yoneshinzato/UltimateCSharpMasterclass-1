@@ -318,5 +318,4 @@ class MedicalAppointment
 
 }
 
-Console.ReadKey();
 
